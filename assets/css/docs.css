@@ -1,0 +1,25 @@
+.doc-sidebar .nav>li>a {
+    display: block;
+    padding: 4px 20px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #767676;
+}
+
+.doc-sidebar .nav>.active:focus>a,
+.doc-sidebar .nav>.active:hover>a,
+.doc-sidebar .nav>.active>a {
+    padding-left: 18px;
+    font-weight: 700;
+    color: #337ab7;
+    background-color: transparent;
+    border-left: 2px solid #337ab7;
+}
+
+.doc-sidebar .nav .nav>li>a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    font-size: 12px;
+    font-weight: 400;
+}

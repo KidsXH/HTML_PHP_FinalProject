@@ -1,0 +1,14 @@
+body {
+}
+.masthead {
+  padding: 200px 0 200px;
+  color: #fff;
+  background-image: linear-gradient(45deg, #1d549c 0px, #209ff3 100%);
+  box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
+  text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);
+  text-align: center;
+}
+.doc-masthead {
+  padding: 50px 0 50px;
+  text-align: left;
+}

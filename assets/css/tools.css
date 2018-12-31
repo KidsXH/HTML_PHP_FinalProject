@@ -1,0 +1,45 @@
+body {
+    position: relative;
+}
+.page-header {
+    padding:40px 0 9px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+h1 small {
+    font-size: .5rem;
+    color: #777;
+    margin-left: .5rem;
+}
+
+.tools-sidebar {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    padding: 4rem 2rem 0 0;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+input[type='number'] {
+    display: none;
+}
+.tools-sidebar .nav>.nav-link {
+    padding: .2rem 1rem;
+    color: #777;
+}
+.tools-sidebar .nav>a:hover {
+    color: #2083d7;
+    border-left: 1px solid #2083d7;
+}
+.tools-sidebar .nav>.active:focus,
+.tools-sidebar .nav>.active:hover,
+.tools-sidebar .nav>.active  {
+    padding-left: 1.3rem;
+    font-weight: 700;
+    color: #2083d7;
+    border-left: 2px solid #2083d7;
+}
+
+
+
