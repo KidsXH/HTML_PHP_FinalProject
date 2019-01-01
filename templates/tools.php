@@ -26,6 +26,7 @@ require_once $path_fix . "include/info.php";
 </head>
 
 <body data-spy="scroll" data-target="#tools-sidebar">
+
 <?php require $path_fix . "templates/nav.php"; ?>
 
 <div class="jumbotron jumbotron-fluid masthead doc-masthead">
@@ -219,6 +220,9 @@ require_once $path_fix . "include/info.php";
 <!-- following theme script is needed to use the Font Awesome 5.x theme (`fas`) -->
 <script src="<?php echo $path_fix . "assets/js/" ?>theme.min.js"></script>
 
+<!--on_load-->
+<script type="text/javascript">
+</script>
 <script src="../bootstrap/js/bootstrap-input-spinner.js"></script>
 <!--number spinner-->
 <script>
@@ -227,18 +231,31 @@ require_once $path_fix . "include/info.php";
 <!--calcBtn-->
 <script>
     $('#calcBtn').click(function () {
-        let ok = typeof(greenChanel) !== "undefined" &&
-            typeof(nirChanel) !== "undefined" &&
-            typeof(threshold) !== "undefined" &&
-            typeof(imgName) !== "undefined";
-        if (!ok) {
+        let g = $('#lockGreenBtn');
+        let n = $('#lockNirBtn');
+        let t  = $('#lockThBtn');
+        let o = $('#openBtn');
+        let msg = "";
+        if (!g.hasClass('btn-outline-success')) {
+            msg += "绿波段序号未确认\n";
+        }
+        if (!n.hasClass('btn-outline-success')) {
+            msg += "近红外波段序号未确认\n";
+        }
+        if (!t.hasClass('btn-outline-success')) {
+            msg += "阈值未确认\n";
+        }
+        if (!o.hasClass('btn-success')) {
+            msg += "TIF文件未上传\n";
+        }
+
+        if (msg !== "") {
+            alert(msg);
             return;
         }
         let greenChanel = $('#greenInput').val();
         let nirChanel = $('#nirInput').val();
         let threshold = $('#thresholdInput').val();
-        let imgPath = '<?php echo $IMG_PATH ?>';
-
         $.ajax({
             type: 'POST',
             url: '<?php echo $path_fix?>app/calculate.php',
@@ -246,9 +263,7 @@ require_once $path_fix . "include/info.php";
             data: {
                 greenChanel: greenChanel,
                 nirChanel: nirChanel,
-                threshold: threshold,
-                imgPath: imgPath,
-                imgName: imgName
+                threshold: threshold
             },
             success: function (data) {
                 if (data.status === '1') {
@@ -287,9 +302,8 @@ require_once $path_fix . "include/info.php";
             res = data.response, reader = data.reader;
         $('#fileUploadModal').modal('hide');
         let btn = $('#openBtn');
-        let imgName = btn.text();
         btn.toggleClass("btn-success").text(res.filename);
-        console.log('File uploaded triggered');
+        // console.log('File uploaded triggered');
     });
 </script>
 <!--lockBtn-->

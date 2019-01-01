@@ -1,4 +1,5 @@
 <?php
+    require_once ".." .DIRECTORY_SEPARATOR . "include" .DIRECTORY_SEPARATOR . "info.php";
     // _FILES下标表示input:file的name参数
     if (empty($_FILES['rawImg'])) {
         echo json_encode(['error' => 'No files found for upload.']);
@@ -7,6 +8,7 @@
 
     // 获取文件
     $images = $_FILES['rawImg'];
+
     // 获取Extra data
     $userid = empty($_POST['userid']) ? '' : $_POST['userid'];
     $username = empty($_POST['username']) ? '' : $_POST['username'];
@@ -20,17 +22,16 @@
     // get file names
     $filename = $images['name'];
 
-    // loop and process files
-        $ext = explode('.', basename($filename));
-        $path_fix = dirname(__FILE__);
-        // $target = $path_fix . "\..\uploads" . DIRECTORY_SEPARATOR . md5(uniqid()) . "." . array_pop($ext);
-        $target = $path_fix . "\..\uploads" .DIRECTORY_SEPARATOR . basename($filename);
-        if (move_uploaded_file($images['tmp_name'], $target)) {
-            $success = true;
-            $paths[] = $target;
-        } else {
-            $success = false;
-        }
+    // $ext = explode('.', basename($filename));
+    // $path_fix = dirname(__FILE__);
+    // $target = $path_fix . "\..\uploads" . DIRECTORY_SEPARATOR . md5(uniqid()) . "." . array_pop($ext);
+    $target = ".." . DIRECTORY_SEPARATOR . $IMG_PATH . $TEMP_IMG_FILE;
+    if (move_uploaded_file($images['tmp_name'], $target)) {
+        $success = true;
+        $paths[] = $target;
+    } else {
+        $success = false;
+    }
 
 
     // check and process based on successful status

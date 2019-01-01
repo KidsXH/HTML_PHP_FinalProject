@@ -1,4 +1,5 @@
 <?php
+require_once "../include/info.php";
 /**
  * Created by PhpStorm.
  * User: NewbeeWen
@@ -17,9 +18,7 @@
 $greenChanel = $_POST['greenChanel'];
 $nirChanel = $_POST['nirChanel'];
 $threshold = $_POST['threshold'];
-$imgPath = $_POST['imgPath'];
-$imgName = $_POST['imgName'];
-$imgFile = "../" . $imgPath . $imgName;
+$imgFile = "../" .$IMG_PATH.$TEMP_IMG_FILE;
 
 $cmd='python calculate.py' . ' ' .
     $greenChanel . ' '  . $nirChanel .  ' ' .  $threshold . ' ' .
