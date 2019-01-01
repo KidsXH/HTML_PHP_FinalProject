@@ -272,8 +272,13 @@ require_once $path_fix . "include/info.php";
                 else
                     alert(data.msg);
             },
-            error: function () {
-                alert('ajax error');
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                // 状态码
+                console.log(XMLHttpRequest.status);
+                // 状态
+                console.log(XMLHttpRequest.readyState);
+                // 错误信息
+                console.log(textStatus);
             }
         });
     });
