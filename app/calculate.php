@@ -1,5 +1,5 @@
 <?php
-require_once "../include/info.php";
+require_once ".." .DIRECTORY_SEPARATOR . "include" .DIRECTORY_SEPARATOR . "info.php";
 /**
  * Created by PhpStorm.
  * User: NewbeeWen
@@ -18,7 +18,7 @@ require_once "../include/info.php";
 $greenChanel = $_POST['greenChanel'];
 $nirChanel = $_POST['nirChanel'];
 $threshold = $_POST['threshold'];
-$imgFile = "../" .$IMG_PATH.$TEMP_IMG_FILE;
+$imgFile = ".." .DIRECTORY_SEPARATOR .$IMG_PATH.$TEMP_IMG_FILE;
 
 $cmd='python calculate.py' . ' ' .
     $greenChanel . ' '  . $nirChanel .  ' ' .  $threshold . ' ' .
