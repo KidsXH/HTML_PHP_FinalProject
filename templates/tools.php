@@ -68,13 +68,19 @@ require_once $path_fix . "include/info.php";
                 <div class="row align-items-center">
                     <div class="col-md-4 text-center">
                         <div class="row">
-                            <label id="lockGreenBtn" for="greenInput" class="btn btn-outline-primary col-md-5">绿波段</label>
+                            <label id="lockGreenBtn" for="greenInput" class="btn btn-outline-primary col-md-5"
+                                   data-toggle="tooltip" data-placement="left" title="Click to lock/unlock">
+                                绿波段
+                            </label>
                             <div class="col-md-7">
                                 <input type="number" id="greenInput" value="1" min="1" max="10" step="1">
                             </div>
                         </div>
                         <div class="row">
-                            <label id="lockNirBtn" for="nirInput" class="btn btn-outline-primary col-md-5">近红外波段</label>
+                            <label id="lockNirBtn" for="nirInput" class="btn btn-outline-primary col-md-5"
+                                   data-toggle="tooltip" data-placement="left" title="Click to lock/unlock">
+                                近红外波段
+                            </label>
                             <div class="col-md-7">
                                 <input type="number" id="nirInput" value="1" min="1" max="10" step="1">
                             </div>
@@ -100,7 +106,10 @@ require_once $path_fix . "include/info.php";
                     <div class="col-md-4 text-center">
 
                         <div class="row">
-                            <label id="lockThBtn" for="thresholdInput" class="btn btn-outline-primary col-md-5">阈值</label>
+                            <label id="lockThBtn" for="thresholdInput" class="btn btn-outline-primary col-md-5"
+                                   data-toggle="tooltip" data-placement="left" title="Click to lock/unlock">
+                                阈值
+                            </label>
                             <div class="col-md-7">
                                 <input type="number" id="thresholdInput" value="0" data-decimals="2" min="-10"
                                        max="10"
@@ -222,6 +231,9 @@ require_once $path_fix . "include/info.php";
 
 <!--on_load-->
 <script type="text/javascript">
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
 </script>
 <script src="../bootstrap/js/bootstrap-input-spinner.js"></script>
 <!--number spinner-->
@@ -267,7 +279,9 @@ require_once $path_fix . "include/info.php";
             },
             success: function (data) {
                 if (data.status === '0') {
-                    alert('succeed!')
+                    alert('succeed!');
+
+                    location.href = ("<?php echo $path_fix?>app/results/ndwi.tif");
                 }
                 else
                     alert(data.msg);
