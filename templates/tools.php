@@ -266,7 +266,7 @@ require_once $path_fix . "include/info.php";
                 threshold: threshold
             },
             success: function (data) {
-                if (data.status === '1') {
+                if (data.status === '0') {
                     alert('succeed!')
                 }
                 else
