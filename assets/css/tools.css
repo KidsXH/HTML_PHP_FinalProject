@@ -17,10 +17,14 @@ h1 small {
     position: sticky;
     top: 0;
     padding: 4rem 2rem 0 0;
-    height: 100vh;
+    height: calc(100vh - 4rem);
     overflow-y: auto;
 }
-
+.results-area {
+    padding: 4rem 0 0 0;
+    text-align: center;
+    overflow-y: hidden;
+}
 input[type='number'] {
     display: none;
 }
@@ -41,5 +45,34 @@ input[type='number'] {
     border-left: 2px solid #2083d7;
 }
 
+.confirm-body button {
+    min-width: 10rem;
+}
 
+.alert {
+    text-align: left;
+}
 
+figure {
+    padding-top: 1rem;
+}
+
+.num-col {
+    padding: 0;
+}
+
+.input-block {
+    text-align: center;
+}
+
+.input-block>.row>div {
+    padding: 0 1rem 1rem 0;
+}
+.modal-dialog {
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: auto;
+}

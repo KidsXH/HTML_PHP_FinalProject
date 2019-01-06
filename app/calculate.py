@@ -108,23 +108,3 @@ if __name__ == "__main__":
         return_json('succeed', '0')
     else:
         return_json('Threshold out of range.', '3')
-
-    """
-    run.write_img('_water.tif', proj, geotrans, data)  # 写数据
-    ndvi = (data[4] - data[3]) / (data[4] + data[3])  # 5为近红外波段；4为红波段
-    # print(ndvi.dtype)
-    # ndvi = ndvi.astype(np.uint8)
-    run.write_img('results/water_ndvi.tif', proj, geotrans, ndvi)  # 写为ndvi图像
-    """
-    """
-    B = data[1].astype(np.uint8)
-    ret, thresh = cv2.threshold(B, 220, 255, 0)
-    cv2.imshow("Blue", thresh)
-    print(B)
-    run.write_img('./results/cloud.tif', proj, geotrans, B)
-    """
-    """
-    """
-
-    # cv2.waitKey()
-    # cv2.destroyAllWindows()
