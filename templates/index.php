@@ -29,7 +29,7 @@ require_once($path_fix . "include/info.php");
     <div class="container">
         <h1>欢迎使用水体提取工具</h1>
         <br>
-        <p><a class="btn btn-lg btn-outline-light" href="<?php echo $path_fix . "tools.php" ?>" role="button">立即开始</a></p>
+        <p><a class="btn btn-lg btn-outline-light home-btn" href="<?php echo $path_fix . "tools.php" ?>" role="button">立即开始</a></p>
     </div>
 </div>
 

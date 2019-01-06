@@ -1,8 +1,5 @@
 <?php
-$dir = basename(getcwd());
-if ($dir == "templates") $path_fix = "../";
-else $path_fix = "";
-require_once $path_fix . "include/info.php";
+require_once __DIR__ . "/../include/info.php";
 ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -12,22 +9,18 @@ require_once $path_fix . "include/info.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="<?php echo $path_fix . "assets/favicon.ico" ?>">
+
+    <link rel="icon" href="<?php echo __DIR__ . "/../assets/favicon.ico" ?>">
 
     <title><?php echo $TITLE ?> | 工具</title>
 
-    <?php include($path_fix . "templates/css.php"); ?>
-    <link rel="stylesheet" href="<?php echo $path_fix . "assets/css/tools.css" ?>">
+    <?php require __DIR__ . "/../templates/css.php"; ?>
 
-    <link href="<?php echo $path_fix . "assets/css/" ?>fileinput.min.css" media="all" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="<?php echo $path_fix . "assets/css/" ?>all.css" crossorigin="anonymous">
 </head>
 
 <body data-spy="scroll" data-target="#tools-sidebar">
 
-<?php require $path_fix . "templates/nav.php"; ?>
+<?php require __DIR__ . "/../templates/nav.php"; ?>
 
 <div class="jumbotron jumbotron-fluid masthead doc-masthead">
     <div class="container">
@@ -51,7 +44,7 @@ require_once $path_fix . "include/info.php";
                     </div>
                     <div class="col-md-8">
                         <figure class="figure">
-                            <img src="<?php echo $path_fix . 'assets/image/1.jpg' ?>"
+                            <img src="<?php echo __DIR__ . "/../assets/image/1.jpg" ?>"
                                  class="figure-img img-fluid rounded"
                                  alt="A generic square placeholder image with rounded corners in a figure.">
                             <figcaption class="figure-caption">点击按钮上传新文件，仅支持 TIF 格式文件。</figcaption>
@@ -90,7 +83,7 @@ require_once $path_fix . "include/info.php";
                     </div>
                     <div class="col-md-8">
                         <figure class="figure">
-                            <img src="<?php echo $path_fix . 'assets/image/6.jpg' ?>"
+                            <img src="<?php echo __DIR__ . "/../assets/image/6.jpg" ?>"
                                  class="figure-img img-fluid rounded"
                                  alt="A generic square placeholder image with rounded corners in a figure.">
                             <figcaption class="figure-caption">点击标签确认并锁定参数，波段序号必须是正整数。</figcaption>
@@ -262,7 +255,7 @@ require_once $path_fix . "include/info.php";
             <h4 class="alert-heading">成功了!</h4>
             <hr>
             <p>您上传的文件成功通过了计算，生成了中间文件（水体指数）和结果文件（水体指数二值化）。</p>
-            <p class="mb-0">请点击页面右侧按钮下载文件。</p>
+            <p class="mb-0">请点击相应按钮下载文件。</p>
 
         </div>
     </div>
@@ -277,42 +270,24 @@ require_once $path_fix . "include/info.php";
         </div>
     </div>
 </div>
-<!-- Bootstrap core JavaScript
-  ================================================== -->
-<?php include($path_fix . "templates/js.php"); ?>
-<!-- piexif.min.js is needed for auto orienting image files OR when restoring exif data in resized images and when you
-        wish to resize images before upload. This must be loaded before fileinput.min.js -->
-<script src="<?php echo $path_fix . "assets/js/" ?>piexif.min.js" type="text/javascript"></script>
-<!-- sortable.min.js is only needed if you wish to sort / rearrange files in initial preview.
-    This must be loaded before fileinput.min.js -->
-<script src="<?php echo $path_fix . "assets/js/" ?>sortable.min.js" type="text/javascript"></script>
-<!-- purify.min.js is only needed if you wish to purify HTML content in your preview for
-    HTML files. This must be loaded before fileinput.min.js -->
-<script src="<?php echo $path_fix . "assets/js/" ?>purify.min.js" type="text/javascript"></script>
-<!-- bootstrap.min.js below is needed if you wish to zoom and preview file content in a detail modal
-    dialog. bootstrap 4.x is supported. You can also use the bootstrap js 3.3.x versions. -->
-<script src="<?php echo $path_fix . "assets/js/" ?>bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-<!-- the main fileinput plugin file -->
-<script src="<?php echo $path_fix . "assets/js/" ?>fileinput.min.js"></script>
-<!-- following theme script is needed to use the Font Awesome 5.x theme (`fas`) -->
-<script src="<?php echo $path_fix . "assets/js/" ?>theme.min.js"></script>
 
-<!--on_load-->
-<script type="text/javascript">
+<?php require $path_fix . "templates/js.php"; ?>
+
+<script src="<?php echo $path_fix . "assets/js/tools.js" ?>"></script>
+<!--
+
+<!--on_load--
+<script>
     $(function () {
         $('[data-toggle="tooltip"]').tooltip();
+        $("input[type='number']").inputSpinner();
         $('#confirmArgsModal').on('hidden.bs.modal', function (e) {
             $('#dangerAlert').collapse('hide');
             $('#waringAlert').collapse('hide');
         })
     })
 </script>
-<script src="../bootstrap/js/bootstrap-input-spinner.js"></script>
-<!--number spinner-->
-<script>
-    $("input[type='number']").inputSpinner()
-</script>
-<!--calcBtn-->
+<!--calcBtn--
 <script>
     $('#goBtn').click(function () {
         let g = $('#lockGreenBtn');
@@ -368,12 +343,8 @@ require_once $path_fix . "include/info.php";
         }
     }
     function results_clear() {
-        $('#downloadBtn1').removeClass('btn-outline-success').addClass('btn-outline-warning').prop('title', '文件已改变').click(function () {
-            location.href = "";
-        });
-        $('#downloadBtn2').removeClass('btn-outline-success').addClass('btn-outline-warning').prop('title', '文件已改变').click(function () {
-            location.href = "";
-        });
+        $('#downloadBtn1').removeClass('btn-outline-success').addClass('btn-outline-warning').prop('title', '文件已变更');
+        $('#downloadBtn2').removeClass('btn-outline-success').addClass('btn-outline-warning').prop('title', '文件已变更');
     }
     function results_success() {
         $('#collapseDiv').collapse('show');
@@ -422,6 +393,7 @@ require_once $path_fix . "include/info.php";
                 }
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
+                results_error('ajax error');
                 // 状态码
                 console.log(XMLHttpRequest.status);
                 // 状态
@@ -432,7 +404,7 @@ require_once $path_fix . "include/info.php";
         });
     });
 </script>
-<!--fileInput-->
+<!--fileInput--
 <script>
     $("#imgInput").fileinput({
         showPreview: false,
@@ -457,12 +429,10 @@ require_once $path_fix . "include/info.php";
         $('#fileUploadModal').modal('hide');
         let btn = $('#uploadBtn');
         btn.removeClass('btn-primary').addClass('btn-success').text(res.filename);
-    }).on('fileclear', function (event) {
-        $('#uploadBtn').removeClass('btn-success').addClass('btn-primary').text('上传 TIF 文件');
         results_clear();
     });
 </script>
-<!--lockBtn-->
+<!--lockBtn--
 <script>
     $('#lockGreenBtn').click(function () {
         let t = $(this).toggleClass('btn-outline-primary').toggleClass('btn-outline-success');
@@ -477,5 +447,7 @@ require_once $path_fix . "include/info.php";
         $('#thresholdInput').prop('disabled', t.hasClass('btn-outline-success'));
     });
 </script>
+
+-->
 </body>
 </html>

@@ -1,6 +1,12 @@
 body {
   font-size: 100%;
+  position: relative;
 }
+
+.home-btn:hover {
+  color: #2083d7;
+}
+
 .masthead {
   padding: 200px 0 200px;
   color: #fff;
@@ -9,7 +15,112 @@ body {
   text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);
   text-align: center;
 }
+
 .doc-masthead {
   padding: 50px 0 50px;
   text-align: left;
+}
+
+.page-header {
+  padding:40px 0 9px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+h1 small {
+  font-size: .75rem;
+  color: #777;
+  margin-left: .5rem;
+}
+
+.results-area {
+  padding: 4rem 0 0 0;
+  text-align: center;
+  overflow-y: hidden;
+}
+
+input[type='number'] {
+  display: none;
+}
+
+.tools-sidebar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 4rem 2rem 0 0;
+  height: calc(100vh - 4rem);
+  overflow-y: auto;
+}
+
+.tools-sidebar .nav>.nav-link {
+  padding: .2rem 1rem;
+  color: #777;
+}
+
+.tools-sidebar .nav>a:hover {
+  color: #2083d7;
+  border-left: 1px solid #2083d7;
+}
+
+.tools-sidebar .nav>.active:focus,
+.tools-sidebar .nav>.active:hover,
+.tools-sidebar .nav>.active  {
+  padding-left: 1.3rem;
+  font-weight: 700;
+  color: #2083d7;
+  border-left: 2px solid #2083d7;
+}
+
+.confirm-body button {
+  min-width: 10rem;
+}
+
+.alert {
+  text-align: left;
+}
+
+figure {
+  padding-top: 1rem;
+}
+
+.input-block {
+  text-align: center;
+}
+
+.input-block>.row>div {
+  padding: 0 1rem 1rem 0;
+}
+
+.modal-dialog {
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: auto;
+}
+.doc-sidebar .nav>li>a {
+  display: block;
+  padding: 4px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #767676;
+}
+
+.doc-sidebar .nav>.active:focus>a,
+.doc-sidebar .nav>.active:hover>a,
+.doc-sidebar .nav>.active>a {
+  padding-left: 18px;
+  font-weight: 700;
+  color: #337ab7;
+  background-color: transparent;
+  border-left: 2px solid #337ab7;
+}
+
+.doc-sidebar .nav .nav>li>a {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 30px;
+  font-size: 12px;
+  font-weight: 400;
 }
