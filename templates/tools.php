@@ -91,18 +91,18 @@
                 <h1 class="page-header" id="stepThree">第三步
                     <small>设定阈值</small>
                 </h1>
-
                 <div class="row align-items-center">
                     <div class="col-md-4 input-block">
                         <div class="row">
                             <div class="col-lg-12 col-xl-5">
-                            <label id="lockThBtn" for="thresholdInput" class="btn btn-outline-primary col-12"
-                                   data-toggle="tooltip" data-placement="left" title="点击确认/取消">
-                                阈值
-                            </label>
+                                <label id="lockThBtn" for="thresholdInput" class="btn btn-outline-primary col-12"
+                                       data-toggle="tooltip" data-placement="left" title="点击确认/取消">
+                                    阈值
+                                </label>
                             </div>
                             <div class="col-lg-12 col-xl-7">
-                                <input type="number" id="thresholdInput" value="0" data-decimals="2" min="-10" max="10" step="0.05">
+                                <input type="number" id="thresholdInput" value="0" data-decimals="2" min="-10" max="10"
+                                       step="0.05">
                             </div>
                         </div>
                     </div>
@@ -122,7 +122,6 @@
                 <h1 class="page-header" id="stepFour">第四步
                     <small>提取结果</small>
                 </h1>
-
                 <div class="row align-items-center">
                     <div class="col-md-4 text-center">
                         <div class="row">
@@ -135,7 +134,6 @@
                         </div>
 
                     </div>
-
                     <div class="col-md-8">
                         <figure class="figure">
                             <img src="assets/image/4.jpg"
@@ -149,7 +147,6 @@
             </div>
         </div>
         <div class="col-lg-2 col-md-12 tools-sidebar">
-            <!--Scrollspy -->
             <nav id="tools-sidebar" class="navbar navbar-light sticky-top d-none d-xl-block">
                 <nav class="nav flex-column">
                     <a class="nav-link" href="#stepOne">1. 上传文件</a>
