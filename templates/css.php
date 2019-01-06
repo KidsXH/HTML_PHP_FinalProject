@@ -1,23 +1,9 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: NewbeeWen
- * Date: 2018/12/25
- * Time: 21:03
- */
-
-$dir = basename(getcwd());
-if ($dir == "templates") $path_fix = "../";
-else $path_fix = "";
-
-?>
-
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="<?php echo $path_fix . "assets/css/fileinput.min.css" ?>" crossorigin="anonymous">
-  <link rel="stylesheet" href="<?php echo $path_fix . "assets/css/all.css" ?>" crossorigin="anonymous">
-  <link rel="stylesheet" href="<?php echo $path_fix."assets/css/style.css"?>" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/fileinput.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/all.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/style.css" crossorigin="anonymous">
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>

@@ -1,10 +1,3 @@
-<?php
-    $dir = basename(getcwd());
-    if ($dir == "templates") $path_fix = "../";
-    else $path_fix = "";
-    require_once $path_fix . "include/info.php";
-?>
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
         <a class="navbar-brand" href="./">水体提取工具</a>
@@ -25,10 +18,6 @@
                     <a class="nav-link" href="tools.php">工具</a>
                 </li>
             </ul>
-            <?php
-            if ($LOGIN_MOD == 1)
-                require_once $path_fix . "templates/login.php";
-            ?>
         </div>
     </div>
 </nav>
