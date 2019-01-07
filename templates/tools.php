@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
 
-    <link rel="icon" href="<?php echo "assets/favicon.ico" ?>">
+    <link rel="icon" href="assets/favicon.ico">
     <title><?php echo $TITLE ?> | 工具</title>
 
     <?php require "templates/css.php"; ?>
