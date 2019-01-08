@@ -60,17 +60,26 @@ function lockBtn(btnId) {
         b.click();
     }
 }
+function unlockBtn(btnId) {
+    let b = $(btnId);
+    if (b.hasClass('btn-outline-success')) {
+        b.click();
+    }
+}
 function results_clear() {
-    $('#downloadBtn1').removeClass('btn-outline-success').addClass('btn-outline-warning').prop('title', '文件已变更');
-    $('#downloadBtn2').removeClass('btn-outline-success').addClass('btn-outline-warning').prop('title', '文件已变更');
+    unlockBtn('#lockGreenBtn');
+    unlockBtn('#lockNirBtn');
+    unlockBtn('#lockThBtn');
+    $('#downloadBtn1').removeClass('btn-outline-success').addClass('btn-outline-warning').prop('title', '文件/设置已变更');
+    $('#downloadBtn2').removeClass('btn-outline-success').addClass('btn-outline-warning').prop('title', '文件/设置已变更');
 }
 function results_success() {
     $('#collapseDiv').collapse('show');
     $('#successModal').modal('show');
-    $('#downloadBtn1').removeClass('btn-outline-warning').addClass('btn-outline-success').prop('title', '水体指数').click(function () {
+    $('#downloadBtn1').removeClass('btn-outline-warning').addClass('btn-outline-success').prop('title', '水体指数计算结果').click(function () {
         location.href = "app/results/ndwi.tif";
     });
-    $('#downloadBtn2').removeClass('btn-outline-warning').addClass('btn-outline-success').prop('title', '水体指数二值化').click(function () {
+    $('#downloadBtn2').removeClass('btn-outline-warning').addClass('btn-outline-success').prop('title', '水体提取结果').click(function () {
         location.href = "app/results/ndwi_binary.tif";
     });
 }
@@ -84,6 +93,8 @@ function results_error(errorType) {
     }
     $('#errorMsg').text(msg);
     $('#errorModal').modal('show');
+    $('#downloadBtn1').removeClass('btn-outline-success').addClass('btn-outline-warning').prop('title', '文件/设置已变更');
+    $('#downloadBtn2').removeClass('btn-outline-success').addClass('btn-outline-warning').prop('title', '文件/设置已变更');
 }
 $('#submitBtn').click(function () {
     lockBtn('#lockGreenBtn');
