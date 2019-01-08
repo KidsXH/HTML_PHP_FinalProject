@@ -1,11 +1,5 @@
 <?php
 require_once ".." .DIRECTORY_SEPARATOR . "include" .DIRECTORY_SEPARATOR . "info.php";
-/**
- * Created by PhpStorm.
- * User: NewbeeWen
- * Date: 2018/12/28
- * Time: 13:37
- */
 
 /** --post data--
  * greenChanel: greenChanel,
