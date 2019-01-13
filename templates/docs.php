@@ -40,13 +40,6 @@
             margin-top: 0;
             padding-left: 1rem;
         }
-        ol ol, ol ul, ul ol, ul ul {
-            margin-bottom: 0;
-        }
-        dl, ol, ul {
-            margin-top: 0;
-            margin-bottom: 1rem;
-        }
         .section-nav {
             padding-left: 0;
             border-left: 1px solid #eee;
@@ -73,6 +66,9 @@
             padding: 2.2em 5px;
             white-space: inherit;
         }
+        .flow-list figure>figcaption {
+            margin-bottom: 0.5em;
+        }
     </style>
 </head>
 
@@ -89,18 +85,20 @@
 <div class="container">
     <div class="row">
         <main class="col-12 col-xl-9 bd-content" role="main">
+
             <h1 class="page-header" id="summary">概述</h1>
             <p class="lead">简要介绍网站的功能、采用的技术等。</p>
             <h2 id="summary-function">功能</h2>
             <p>根据用户上传的影像和设定的参数，计算出水体指数和水体提取结果。</p>
             <h2 id="summary-technology">技术</h2>
-            <p>
-                前端使用 HTML5, JavaScript, jQuery, bootstrap-v4.0.0 等；
-                <br>
-                后端使用 PHP5.6 + Python；
-                <br>
-                计算过程由 Python 调用第三方库 GDAL 实现。
+            <p>前端使用 HTML5, JavaScript, jQuery, bootstrap-v4.0.0 等；<br>
+                后端使用 PHP5.6；<br>
+                核心计算程序由 Python 调用第三方库 GDAL 实现；<br>
+                所有向后台提交数据都用 jQuery.ajax 异步请求；<br>
+                页面采取响应式布局，支持各种尺寸的屏幕访问，包括手机；<br>
+                支持 Chrome、Edge、Safari 等浏览器，不兼容 IE 内核浏览器。
             </p>
+
             <h1 class="page-header" id="requirements">需求分析</h1>
             <p class="lead">简要描述各个功能模块、业务处理流程。</p>
             <h2 id="requirements-models">功能模块描述</h2>
@@ -113,11 +111,11 @@
                 <dt>确认提交模块</dt>
                 <dd>在提交计算之前，让用户确认设置是否无误。对未确认的信息进行提醒，若未上传文件，则发出警告。确认后提交数据到后端。</dd>
                 <dt>显示结果模块</dt>
-                <dd>弹窗显示计算结果，并在页面上显示下载按钮。</dd>
+                <dd>弹窗显示计算结果，成功后在页面上显示下载按钮。</dd>
             </dl>
 
             <h2 id="requirements-flow">业务处理流程</h2>
-                <ol>
+                <ol class="flow-list">
                     <li>
                         <h4>上传文件</h4>
                         <p>点击按钮，在弹出的文件上传界面中，选择要上传的本地文件，点击保存完成上传。</p>
@@ -295,6 +293,129 @@
                 </tbody>
             </table>
             <h1 class="page-header" id="implementation">实现功能</h1>
+            <p class="lead">展示各模块具体的功能，程序流程图，截图。</p>
+
+            <h2 id="implementation-upload">文件上传</h2>
+            <p>接收上传的文件，只接受单个文件，文件格式只接受 TIF 文件。文件将被作为临时文件上传到服务器。</p>
+
+            <h4>流程图</h4>
+            <figure class="figure">
+                <img src="assets/image/model_flow_1.jpg" class="figure-img img-fluid rounded">
+            </figure>
+
+            <h4>截图</h4>
+            <figure class="figure">
+                <figcaption class="figure-caption">初始界面。</figcaption>
+                <img src="assets/image/flow_1_1.jpg" class="figure-img img-fluid rounded">
+            </figure>
+            <figure class="figure">
+                <figcaption class="figure-caption">文件上传界面1。</figcaption>
+                <img src="assets/image/flow_1_2.jpg" class="figure-img img-fluid rounded">
+            </figure>
+            <figure class="figure">
+                <figcaption class="figure-caption">文件上传界面2。</figcaption>
+                <img src="assets/image/flow_1_3.jpg" class="figure-img img-fluid rounded">
+            </figure>
+            <figure class="figure">
+                <figcaption class="figure-caption">文件上传成功。</figcaption>
+                <img src="assets/image/flow_1_4.jpg" class="figure-img img-fluid rounded">
+            </figure>
+
+
+            <h2 id="implementation-settings">设置参数</h2>
+            <p>由输入框和按钮组成，接受三个参数：绿波段序号，近红外波段序号，阈值。用户输入的数值会被提交到后端。</p>
+
+            <h4>流程图</h4>
+            <figure class="figure">
+                <img src="assets/image/model_flow_2.jpg" class="figure-img img-fluid rounded">
+            </figure>
+
+            <h4>截图</h4>
+            <figure class="figure">
+                <figcaption class="figure-caption">初始界面。</figcaption>
+                <img src="assets/image/flow_2_1.jpg" class="figure-img img-fluid rounded">
+            </figure>
+            <figure class="figure">
+                <figcaption class="figure-caption">确认/取消按钮。</figcaption>
+                <img src="assets/image/flow_2_2.jpg" class="figure-img img-fluid rounded">
+            </figure>
+            <figure class="figure">
+                <figcaption class="figure-caption">完全确认状态。</figcaption>
+                <img src="assets/image/flow_2_3.jpg" class="figure-img img-fluid rounded">
+            </figure>
+            <figure class="figure">
+                <figcaption class="figure-caption">初始界面。</figcaption>
+                <img src="assets/image/flow_3_1.jpg" class="figure-img img-fluid rounded">
+            </figure>
+            <figure class="figure">
+                <figcaption class="figure-caption">确认/取消按钮。</figcaption>
+                <img src="assets/image/flow_3_2.jpg" class="figure-img img-fluid rounded">
+            </figure>
+            <figure class="figure">
+                <figcaption class="figure-caption">完全确认状态。</figcaption>
+                <img src="assets/image/flow_3_3.jpg" class="figure-img img-fluid rounded">
+            </figure>
+
+            <h2 id="implementation-confirm">确认提交</h2>
+            <p>在提交计算之前，让用户确认设置是否无误。对未确认的信息进行提醒，若未上传文件，则发出警告。确认后提交数据到后端。</p>
+
+            <h4>流程图</h4>
+            <figure class="figure">
+                <img src="assets/image/model_flow_3.jpg" class="figure-img img-fluid rounded">
+            </figure>
+
+            <h4>截图</h4>
+            <figure class="figure">
+                <figcaption class="figure-caption">初始界面。</figcaption>
+                <img src="assets/image/flow_4_1.jpg" class="figure-img img-fluid rounded">
+            </figure>
+            <figure class="figure">
+                <figcaption class="figure-caption">确认框1。</figcaption>
+                <img src="assets/image/flow_4_2.jpg" class="figure-img img-fluid rounded">
+            </figure>
+            <figure class="figure">
+                <figcaption class="figure-caption">确认框2。</figcaption>
+                <img src="assets/image/flow_4_3.jpg" class="figure-img img-fluid rounded">
+            </figure>
+            <figure class="figure">
+                <figcaption class="figure-caption">确认框3。</figcaption>
+                <img src="assets/image/flow_4_4.jpg" class="figure-img img-fluid rounded">
+            </figure>
+
+            <h2 id="implementation-result">显示结果</h2>
+            <p>弹窗显示计算结果，成功后在页面上显示下载按钮。</p>
+
+            <h4>流程图</h4>
+            <figure class="figure">
+                <img src="assets/image/model_flow_4.jpg" class="figure-img img-fluid rounded">
+            </figure>
+
+            <h4>截图</h4>
+            <figure class="figure">
+                <figcaption class="figure-caption">成功。</figcaption>
+                <img src="assets/image/flow_5_1.jpg" class="figure-img img-fluid rounded">
+            </figure>
+            <figure class="figure">
+                <figcaption class="figure-caption">失败1。</figcaption>
+                <img src="assets/image/flow_5_2.jpg" class="figure-img img-fluid rounded">
+            </figure>
+            <figure class="figure">
+                <figcaption class="figure-caption">失败2。</figcaption>
+                <img src="assets/image/flow_5_3.jpg" class="figure-img img-fluid rounded">
+            </figure>
+            <figure class="figure">
+                <figcaption class="figure-caption">下载文件。</figcaption>
+                <img src="assets/image/flow_5_4.jpg" class="figure-img img-fluid rounded">
+            </figure>
+
+            <figure class="figure">
+                <figcaption class="figure-caption">最新提交结果。</figcaption>
+                <img src="assets/image/flow_6_1.jpg" class="figure-img img-fluid rounded">
+            </figure>
+            <figure class="figure">
+                <figcaption class="figure-caption">文件/设置已变更。</figcaption>
+                <img src="assets/image/flow_6_2.jpg" class="figure-img img-fluid rounded">
+            </figure>
         </main>
         <div class="d-none d-xl-block col-xl-3 bd-toc">
             <ul class="section-nav">
@@ -318,13 +439,10 @@
                 </li>
                 <li class="toc-entry toc-h2"><a href="#implementation">实现功能</a>
                     <ul>
-                        <li class="toc-entry toc-h3"><a href="#order-classes">模块1</a>
-                        <ul>
-                            <li class="toc-entry toc-h4"><a href="#offset-classes">功能</a></li>
-                            <li class="toc-entry toc-h4"><a href="#margin-utilities">流程图</a></li>
-                            <li class="toc-entry toc-h4"><a href="#margin-utilities">截图</a></li>
-                        </ul>
-                        </li>
+                        <li class="toc-entry toc-h3"><a href="#implementation-upload">文件上传</a></li>
+                        <li class="toc-entry toc-h3"><a href="#implementation-settings">设置参数</a></li>
+                        <li class="toc-entry toc-h3"><a href="#implementation-confirm">确认提交</a></li>
+                        <li class="toc-entry toc-h3"><a href="#implementation-result">显示结果</a></li>
                     </ul>
                 </li>
             </ul>

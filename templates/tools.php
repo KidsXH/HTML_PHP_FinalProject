@@ -40,9 +40,7 @@
                     </div>
                     <div class="col-md-8">
                         <figure class="figure">
-                            <img src="assets/image/1.jpg"
-                                 class="figure-img img-fluid rounded"
-                                 alt="A generic square placeholder image with rounded corners in a figure.">
+                            <img src="assets/image/1.jpg" class="figure-img img-fluid rounded">
                             <figcaption class="figure-caption">点击按钮上传新文件，仅支持 TIF 格式文件。</figcaption>
                         </figure>
                     </div>
@@ -79,9 +77,7 @@
                     </div>
                     <div class="col-md-8">
                         <figure class="figure">
-                            <img src="assets/image/6.jpg"
-                                 class="figure-img img-fluid rounded"
-                                 alt="A generic square placeholder image with rounded corners in a figure.">
+                            <img src="assets/image/6.jpg" class="figure-img img-fluid rounded">
                             <figcaption class="figure-caption">点击标签确认并锁定参数，波段序号必须是正整数。</figcaption>
                         </figure>
                     </div>
@@ -109,9 +105,7 @@
 
                     <div class="col-md-8">
                         <figure class="figure">
-                            <img src="assets/image/7.jpg"
-                                 class="figure-img img-fluid rounded"
-                                 alt="A generic square placeholder image with rounded corners in a figure.">
+                            <img src="assets/image/7.jpg" class="figure-img img-fluid rounded">
                             <figcaption class="figure-caption">点击标签确认并锁定参数。</figcaption>
                         </figure>
                     </div>
@@ -136,9 +130,7 @@
                     </div>
                     <div class="col-md-8">
                         <figure class="figure">
-                            <img src="assets/image/4.jpg"
-                                 class="figure-img img-fluid rounded"
-                                 alt="A generic square placeholder image with rounded corners in a figure.">
+                            <img src="assets/image/4.jpg" class="figure-img img-fluid rounded">
                             <figcaption class="figure-caption">点击按钮提交并获取结果。</figcaption>
                         </figure>
                     </div>
